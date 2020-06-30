@@ -46,27 +46,34 @@
   };
 </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Y">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
+<meta name="keywords" content="架构,事件驱动,状态机,规则引擎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于事件驱动的订单系统设计">
+<meta property="og:url" content="http://yoursite.com/2020/06/30/基于事件驱动的订单系统设计/index.html">
 <meta property="og:site_name" content="Y">
+<meta property="og:description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/基于事件驱动的订单系统设计/基于驱动的订单系统设计.png">
+<meta property="og:updated_time" content="2020-06-30T03:59:08.700Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Y">
+<meta name="twitter:title" content="基于事件驱动的订单系统设计">
+<meta name="twitter:description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
+<meta name="twitter:image" content="http://yoursite.com/images/基于事件驱动的订单系统设计/基于驱动的订单系统设计.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/06/30/基于事件驱动的订单系统设计/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome: true,
-    isPost: false
+    isHome: false,
+    isPost: true
   };
 </script>
 
-  <title>Y</title>
+  <title>基于事件驱动的订单系统设计 | Y</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154851363-1"></script>
     <script>
@@ -170,10 +177,10 @@
             
 
   <div class="posts-expand">
-        
+      
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/30/基于事件驱动的订单系统设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -187,8 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/30/基于事件驱动的订单系统设计/" class="post-title-link" itemprop="url">基于事件驱动的订单系统设计</a>
+          基于事件驱动的订单系统设计
         </h1>
 
         <div class="post-meta">
@@ -224,7 +230,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h6 id="声明-本文为架构设想，暂未进行实践，欢迎探讨"><a href="#声明-本文为架构设想，暂未进行实践，欢迎探讨" class="headerlink" title="声明: 本文为架构设想，暂未进行实践，欢迎探讨"></a>声明: 本文为架构设想，暂未进行实践，欢迎探讨</h6><p>本文核心主题为基于事件驱动与状态机实现订单状态流程</p>
+        <h6 id="声明-本文为架构设想，暂未进行实践，欢迎探讨"><a href="#声明-本文为架构设想，暂未进行实践，欢迎探讨" class="headerlink" title="声明: 本文为架构设想，暂未进行实践，欢迎探讨"></a>声明: 本文为架构设想，暂未进行实践，欢迎探讨</h6><p>本文核心主题为基于事件驱动与状态机实现订单状态流程</p>
 <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的</p>
 <p>架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。</p>
 <h3 id="设计"><a href="#设计" class="headerlink" title="设计"></a>设计</h3><p><img src="/images/基于事件驱动的订单系统设计/基于驱动的订单系统设计.png" alt="基于驱动的订单系统设计"></p>
@@ -260,24 +266,32 @@
 <h5 id="可维护性问题"><a href="#可维护性问题" class="headerlink" title="可维护性问题"></a>可维护性问题</h5><p>基于上方的Action拆分，将大的业务拆分为小业务，当需求改动会变为一个小业务的改动，维护性增强。</p>
 <h5 id="事务问题"><a href="#事务问题" class="headerlink" title="事务问题"></a>事务问题</h5><p>上方除了事件重试+补偿外，未提供相应的分库及跨业务，跨服务等分布式事务解决方案，需要视情况自行决定。</p>
 
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          <div class="post-tags">
+              <a href="/tags/架构/" rel="tag"># 架构</a>
+              <a href="/tags/事件驱动/" rel="tag"># 事件驱动</a>
+              <a href="/tags/状态机/" rel="tag"># 状态机</a>
+              <a href="/tags/规则引擎/" rel="tag"># 规则引擎</a>
+          </div>
+
+        
+
+
+        
       </footer>
+    
   </article>
   
   
   
 
   </div>
-
-  
-
 
 
           </div>
@@ -328,6 +342,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#声明-本文为架构设想，暂未进行实践，欢迎探讨"><span class="nav-number">1.</span> <span class="nav-text">声明: 本文为架构设想，暂未进行实践，欢迎探讨</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number"></span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设计"><span class="nav-number"></span> <span class="nav-text">设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概念描述"><span class="nav-number"></span> <span class="nav-text">概念描述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#GlobalLock"><span class="nav-number"></span> <span class="nav-text">GlobalLock</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EventStore"><span class="nav-number"></span> <span class="nav-text">EventStore</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#状态机"><span class="nav-number"></span> <span class="nav-text">状态机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action"><span class="nav-number"></span> <span class="nav-text">Action</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#SchedulerJob"><span class="nav-number"></span> <span class="nav-text">SchedulerJob</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#EventHandler"><span class="nav-number"></span> <span class="nav-text">EventHandler</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CmdExe"><span class="nav-number"></span> <span class="nav-text">CmdExe</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ReadService"><span class="nav-number"></span> <span class="nav-text">ReadService</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Data"><span class="nav-number"></span> <span class="nav-text">Data</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数据模型"><span class="nav-number"></span> <span class="nav-text">数据模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单据"><span class="nav-number"></span> <span class="nav-text">单据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件"><span class="nav-number"></span> <span class="nav-text">事件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现概述"><span class="nav-number"></span> <span class="nav-text">实现概述</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#状态机-1"><span class="nav-number"></span> <span class="nav-text">状态机</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Data-1"><span class="nav-number"></span> <span class="nav-text">Data</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#其他"><span class="nav-number"></span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Action扩展性问题"><span class="nav-number"></span> <span class="nav-text">Action扩展性问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#服务扩展问题"><span class="nav-number"></span> <span class="nav-text">服务扩展问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#可维护性问题"><span class="nav-number"></span> <span class="nav-text">可维护性问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事务问题"><span class="nav-number"></span> <span class="nav-text">事务问题</span></a></div>
       </div>
       <!--/noindex-->
 
