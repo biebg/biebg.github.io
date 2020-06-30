@@ -50,7 +50,7 @@
 <meta name="keywords" content="架构,事件驱动,状态机,规则引擎">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于事件驱动的订单系统设计">
-<meta property="og:url" content="http://blog.yuansc.com/2020/06/30/基于事件驱动的订单系统设计/index.html">
+<meta property="og:url" content="http://blog.yuansc.com/2020/06/30/event-driven-order-system-design/index.html">
 <meta property="og:site_name" content="Y">
 <meta property="og:description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
 <meta property="og:locale" content="zh-Hans">
@@ -61,7 +61,7 @@
 <meta name="twitter:description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
 <meta name="twitter:image" content="http://blog.yuansc.com/images/基于事件驱动的订单系统设计/基于驱动的订单系统设计.png">
 
-<link rel="canonical" href="http://blog.yuansc.com/2020/06/30/基于事件驱动的订单系统设计/">
+<link rel="canonical" href="http://blog.yuansc.com/2020/06/30/event-driven-order-system-design/">
 
 
 <script id="page-configurations">
@@ -197,7 +197,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://blog.yuansc.com/2020/06/30/基于事件驱动的订单系统设计/">
+    <link itemprop="mainEntityOfPage" href="http://blog.yuansc.com/2020/06/30/event-driven-order-system-design/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -485,7 +485,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       repo: 'biebg.github.io',
       owner: 'biebg',
       admin: ['biebg'],
-      id: '8aa0fa13c2462838737faad25bfa9160',
+      id: 'de522bab1734d5997fbda455950f6474',
         language: 'zh-CN',
       distractionFreeMode: 'true'
     });
