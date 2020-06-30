@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-Hans">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -53,7 +53,7 @@
 <meta property="og:url" content="http://blog.yuansc.com/2020/06/30/基于事件驱动的订单系统设计/index.html">
 <meta property="og:site_name" content="Y">
 <meta property="og:description" content="声明: 本文为架构设想，暂未进行实践，欢迎探讨本文核心主题为基于事件驱动与状态机实现订单状态流程 前言电商交易系统作为业内文明的最复杂的软件系统之一，在服务架构及代码维护性上必须有一个比较好的 架构设计才能支撑足够强的稳定性，足够好的扩展性,可维护性支撑。 设计 概念描述GlobalLock基础组件，用于解决单一单据并发问题。并发情况下同一单据只允许一个操作。 EventStore事件驱动核心组件">
-<meta property="og:locale" content="default">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://blog.yuansc.com/images/基于事件驱动的订单系统设计/基于驱动的订单系统设计.png">
 <meta property="og:updated_time" content="2020-06-30T03:59:08.700Z">
 <meta name="twitter:card" content="summary">
@@ -130,6 +130,7 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+        <p class="site-subtitle">少说多写</p>
   </div>
 
   <div class="site-nav-toggle">
@@ -148,6 +149,21 @@
         <li class="menu-item menu-item-home">
 
     <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
 
   </li>
         <li class="menu-item menu-item-archives">
@@ -180,7 +196,7 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
     <link itemprop="mainEntityOfPage" href="http://blog.yuansc.com/2020/06/30/基于事件驱动的订单系统设计/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -296,6 +312,7 @@
 
           </div>
           
+    <div class="comments" id="gitalk-container"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -361,15 +378,27 @@
         </a>
       </div>
       <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
         <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">categories</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
         <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">tags</span>
+        <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/biebg" title="GitHub → https://github.com/biebg" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:shouchao.yuan@gmail.com" title="E-Mail → mailto:shouchao.yuan@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+  </div>
 
 
 
@@ -444,6 +473,26 @@
   
 
   
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js', () => {
+    var gitalk = new Gitalk({
+      clientID: '50dbb5aaeea6540bcf1e',
+      clientSecret: '0a4c2c1ec1420eaf8ac519b0c3c3dba7adeade9b',
+      repo: 'biebg.github.io',
+      owner: 'biebg',
+      admin: ['biebg'],
+      id: '8aa0fa13c2462838737faad25bfa9160',
+        language: 'zh-CN',
+      distractionFreeMode: 'true'
+    });
+    gitalk.render('gitalk-container');
+  }, window.Gitalk);
+});
+</script>
 
 </body>
 </html>
